@@ -7,7 +7,15 @@ $(document).ready(function(){
             $.each($(this).serializeArray(), function(i, field){
                 values[field.name] = field.value;
             });
-            console.log("serialized array values", values);
+                console.log("serialized array values", values);
+                $.ajax({
+                    type:"POST",
+                    url:"/data",
+                    data: values,
+                    success: function(data){
+                        console.log("success from post call ", data);
+                    }
+                });
         });
 
 
